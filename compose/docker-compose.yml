@@ -5,3 +5,19 @@ services:
     container_name: exam-app
     ports:
       - "8000:8000"
+    depends_on:
+      - exam-db
+
+  exam-db:
+    image: postgres:14
+    container_name: exam-db
+    environment:
+      - POSTGRES_USER=exam
+      - POSTGRES_PASSWORD=exam
+    ports:
+      - 5432
+    volumes:
+      - "db-volume:/var/lib/postgresql/data"
+
+volumes:
+  db-volume:

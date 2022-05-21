@@ -21,4 +21,4 @@ RUN poetry config virtualenvs.create false && \
 
 RUN ./manage.py collectstatic --noinput
 
-CMD ./manage.py runserver 0.0.0.0:8000
+CMD wait-for-it exam-db:5432 -s -t 180 && ./manage.py runserver 0.0.0.0:8000
