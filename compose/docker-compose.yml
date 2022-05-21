@@ -1,0 +1,7 @@
+services:
+  exam-app:
+    build:
+      context: .
+    container_name: exam-app
+    ports:
+      - "8000:8000"
