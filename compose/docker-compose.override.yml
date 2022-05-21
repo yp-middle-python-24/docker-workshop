@@ -1,0 +1,4 @@
+services:
+  exam-app:
+    volumes:
+      - "./exam:/app"
