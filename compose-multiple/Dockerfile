@@ -15,7 +15,7 @@ COPY . /app/src
 
 WORKDIR /app/src/exam
 
-## Install app requires
+## Install app requirements
 RUN poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
 

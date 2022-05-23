@@ -1,0 +1,16 @@
+services:
+  exam-app:
+    ports: []
+
+  exam-front:
+    build:
+      context: .
+      dockerfile: Dockerfile.front
+    container_name: exam-front
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    depends_on:
+      - exam-app
+    volumes:
+      - "./default.conf:/etc/nginx/conf.d/default.conf"

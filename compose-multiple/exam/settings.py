@@ -26,7 +26,7 @@ SECRET_KEY = '!!! SET SECRET KEY !!!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv('EXAM_DB', False))
 
-ALLOWED_HOSTS = ['0.0.0.0']
+ALLOWED_HOSTS = ['0.0.0.0', 'exam-app']
 
 
 # Application definition
@@ -85,6 +85,13 @@ DATABASES = {
             'HOST': 'exam-db',
         }
 }
+if os.getenv('EXAM_DATABASE_SQLITE'):
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.getenv('EXAM_DATABASE_SQLITE'),
+            }
+    }
 
 
 # Password validation
