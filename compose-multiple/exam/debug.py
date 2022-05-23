@@ -5,5 +5,6 @@ def foo():
     return a + b
 
 
-foo()
+if __name__ == '__main__':
+    foo()
 
