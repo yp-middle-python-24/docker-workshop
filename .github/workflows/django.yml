@@ -1,0 +1,21 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build the docker-compose stack
+      run: docker-compose -f compose-multiple/docker-compose.yml -f compose-multiple/docker-compose.devel.yml build
+    - name: Run test suite
+      run: >-
+        docker-compose -f compose-multiple/docker-compose.yml -f compose-multiple/docker-compose.devel.yml
+        run --rm exam-app
+        /app/src/start-tests.sh

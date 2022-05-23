@@ -1,0 +1,5 @@
+services:
+  exam-app:
+    volumes:
+      - ".:/app/src"
+    command: /app/src/start-tests.sh

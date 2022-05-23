@@ -1,0 +1,10 @@
+services:
+  exam-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.devel
+    command: /app/src/start-django-dev.sh
+    environment:
+      - EXAM_DEBUG=1
+    volumes:
+      - ".:/app/src"

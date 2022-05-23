@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "exam"
+version = "0.1.0"
+description = ""
+authors = ["Eugene Morozov <jmv@emorozov.net>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^3.2.8"
+ipython = "^7.28.0"
+django-extensions = "^3.1.3"
+psycopg2 = {extras = ["binary"], version = "^2.9.3"}
+uvicorn = "^0.17.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+madbg = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
